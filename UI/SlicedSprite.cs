@@ -54,6 +54,11 @@ namespace MonoGameTest.Rendering.Sprites
             BasicEffect effect = new BasicEffect(sb.GraphicsDevice);
             effect.Texture = texture;
             effect.TextureEnabled = true;
+            if (col != null)
+            {
+                effect.DiffuseColor = col.Value.ToVector3();
+            }
+            
 
             Rectangle[] destinationRectangles = GetDestinationRectangles(destination);
 

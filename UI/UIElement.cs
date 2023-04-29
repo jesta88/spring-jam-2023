@@ -4,7 +4,7 @@ using MonoGameTest.Rendering.Sprites;
 using QuadTree;
 using System;
 using System.Collections.Generic;
-
+using System.Security.Cryptography.X509Certificates;
 
 namespace MonoGameTest.UI
 {
@@ -16,7 +16,7 @@ namespace MonoGameTest.UI
 
         public SlicedSprite background;
 
-        public Color col;
+        public Color? col;
 
         public List<UIElement> children = new List<UIElement>();
         public bool IsVisible 
@@ -50,18 +50,19 @@ namespace MonoGameTest.UI
         private Rectangle internal_LocalRect;
         public UIElement Parent { get; }
 
-        public UIElement(Rectangle rect, SlicedSprite background, UIElement parent)
+        public UIElement(Rectangle rect, SlicedSprite background, Color? col, UIElement parent)
         {
             this.internal_LocalRect = rect;
             this.background = background;
             this.Parent = parent;
             this.Parent?.children.Add(this);
+            this.col = col;
         }
 
         public virtual void Draw(SpriteBatch spritebatch)
         {
             if (background != null)
-                background.Draw(spritebatch, AbsoluteRect);
+                background.Draw(spritebatch, AbsoluteRect, col);
 
             OnDraw?.Invoke(spritebatch);
 

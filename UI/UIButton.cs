@@ -14,7 +14,7 @@ namespace MonoGameTest.UI
     {
         public UIElement control;
 
-        public UIButton(Rectangle position, SlicedSprite background, UIElement parent, bool consumeInput = true) : base(position, background, parent)
+        public UIButton(Rectangle position, SlicedSprite background, Color? col, UIElement parent, bool consumeInput = true) : base(position, background, col, parent)
         {
             OnDestroyed += Unregister;
             OnPositionChanged += Refresh;

@@ -44,19 +44,23 @@ namespace Spring
             _testMenu = new UIElement(
                 new Rectangle(50, 50, 1000, 450),
                 new SlicedSprite(_basicBackground, 32, 32),
+                null,
                 null);
             UIElement innerBox = new UIElement(
                 new Rectangle(50, 50, 900, 350),
                 new SlicedSprite(_basicBackground, 32, 32),
+                Color.Aquamarine,
                 _testMenu);
             UIButton button = new UIButton(
                 new Rectangle(400, 125, 100, 100),
                 new SlicedSprite(_basicBackground, 32, 32),
+                Color.Red,
                 innerBox);
             UILabel buttonLabel = new UILabel(
                 "This is a button.",
                 _font,
                 new Rectangle(10, 100, 80, 20),
+                Color.Gold,
                 button);
             button.OnHover += () => { buttonLabel.UpdateText("Hovering!"); };
             button.OnClick += () => { buttonLabel.UpdateText("Clicked!"); };

@@ -14,7 +14,7 @@ namespace Spring.UI
     {
         string content;
         SpriteFont font;
-        public UILabel(String content, SpriteFont font, Rectangle rect, UIElement parent) : base(rect, null, parent)
+        public UILabel(String content, SpriteFont font, Rectangle rect, Color? col, UIElement parent) : base(rect, null, col, parent)
         {
             this.font = font;
             this.content = FormatString(content);
@@ -62,7 +62,7 @@ namespace Spring.UI
 
             
 
-            spritebatch.DrawString(font, content, AbsoluteRect.Location.ToVector2(), Color.Black);
+            spritebatch.DrawString(font, content, AbsoluteRect.Location.ToVector2(), col.HasValue?col.Value:Color.Black);
         }
     }
 }
